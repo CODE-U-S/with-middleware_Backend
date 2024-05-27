@@ -4,7 +4,10 @@ spring:
     url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
-
+    initialization-mode: always
+  sql:
+    init:
+      mode: always
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQLDialect
@@ -15,6 +18,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+    defer-datasource-initialization: true
     open-in-view: false
 
 auth:

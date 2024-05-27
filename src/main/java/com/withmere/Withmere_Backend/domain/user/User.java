@@ -21,7 +21,7 @@ public class User extends BaseTimeEntity {
 
     private String password;
 
-    private String comment;
+    private String user_comment;
 
     private Category category;
 }
