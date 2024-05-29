@@ -14,15 +14,15 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class GetToUserFriendService {
+public class GetFromUserFriendService {
     private final FriendRepository friendRepository;
     private final UserRepository userRepository;
 
     @Transactional(readOnly = true)
-    public List<FriendResponse> execute(User toUser) {
-        if(toUser == null || !userRepository.existsById(toUser.getEmail())) throw UserNotFoundException.EXCEPTION;
+    public List<FriendResponse> execute(User fromUser) {
+        if(fromUser == null || !userRepository.existsById(fromUser.getEmail())) throw UserNotFoundException.EXCEPTION;
 
-        List<FriendResponse> follows = friendRepository.findAllByToUser(toUser)
+        List<FriendResponse> follows = friendRepository.findAllByFromUser(fromUser)
                 .stream()
                 .map(FriendResponse::new)
                 .collect(Collectors.toList());
