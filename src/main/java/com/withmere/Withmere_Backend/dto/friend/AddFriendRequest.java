@@ -12,10 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddFriendRequest {
-    @NotNull(message = "보내는 유저의 email을 적어주세요.")
     private User toUser;
-
-    @NotNull(message = "받는 유저의 email을 적어주세요.")
     private User fromUser;
 
     public Friend toEntity(User toUser, User fromUser) {
