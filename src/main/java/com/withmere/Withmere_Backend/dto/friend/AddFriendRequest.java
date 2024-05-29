@@ -12,11 +12,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddFriendRequest {
-    @NotNull(message = "이메일이 비어있습니다.")
-    @Email(message = "이메일 형식이 아닙니다.")
-    private String email;
+    @NotNull(message = "보내는 유저의 email을 적어주세요.")
+    private User toUser;
 
-    public Friend toEntity(String toUser, User fromUser) {
+    @NotNull(message = "받는 유저의 email을 적어주세요.")
+    private User fromUser;
+
+    public Friend toEntity(User toUser, User fromUser) {
         return new Friend(toUser, fromUser);
     }
 }

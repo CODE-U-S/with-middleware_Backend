@@ -14,14 +14,16 @@ public class Friend {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String toUser;
+    @ManyToOne
+    @JoinColumn
+    private User toUser;
 
     @ManyToOne
-    @JoinColumn(referencedColumnName = "email")
+    @JoinColumn
     private User fromUser;
 
     @Builder
-    public Friend(String toUser, User fromUser) {
+    public Friend(User toUser, User fromUser) {
         this.toUser = toUser;
         this.fromUser = fromUser;
     }

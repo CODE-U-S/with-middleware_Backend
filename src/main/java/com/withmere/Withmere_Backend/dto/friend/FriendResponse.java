@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 public class FriendResponse {
-    private final String toUser;
+    private final User toUser;
     private final User fromUser;
 
     public FriendResponse(Friend follow) {
