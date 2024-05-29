@@ -19,4 +19,10 @@ public class Friend {
     @ManyToOne
     @JoinColumn(referencedColumnName = "email")
     private User fromUser;
+
+    @Builder
+    public Friend(String toUser, User fromUser) {
+        this.toUser = toUser;
+        this.fromUser = fromUser;
+    }
 }
