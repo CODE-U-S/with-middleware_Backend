@@ -1,10 +1,14 @@
 package com.withmere.Withmere_Backend.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.withmere.Withmere_Backend.domain.BaseTimeEntity;
+import com.withmere.Withmere_Backend.domain.friend.Friend;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -22,4 +26,8 @@ public class User extends BaseTimeEntity {
     private String user_comment;
 
     private Category category;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "fromUser", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<Friend> toFromList;
 }
