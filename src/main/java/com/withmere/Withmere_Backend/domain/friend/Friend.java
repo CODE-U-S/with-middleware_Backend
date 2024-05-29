@@ -17,11 +17,11 @@ public class Friend {
     private long request_id;
 
     @ManyToOne
-    @JoinColumn(name="email", nullable = false) // 하나의 계정이 여러 요청 가능
+    @JoinColumn(name = "email", nullable = false, referencedColumnName = "email") // 하나의 계정이 여러 요청 가능
     private User email;
 
     @ManyToOne
-    @JoinColumn(name="friend_email", nullable = false)
+    @JoinColumn(name = "friend_email", nullable = false, referencedColumnName = "email")
     private User friend_email;
 
     private Status status;
