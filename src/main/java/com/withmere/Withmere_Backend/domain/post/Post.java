@@ -3,15 +3,14 @@ package com.withmere.Withmere_Backend.domain.post;
 import com.withmere.Withmere_Backend.domain.BaseTimeEntity;
 import com.withmere.Withmere_Backend.domain.user.User;
 import jakarta.persistence.*;
-import jdk.jfr.Enabled;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
+@Setter
 @Entity
 @Table(name="post")
 public class Post extends BaseTimeEntity {
@@ -37,4 +36,24 @@ public class Post extends BaseTimeEntity {
 
     @Column(length=3000)
     private String post_description;
+
+    @Builder
+    public Post(User email, String post_title, String post_img, LocalDate start_date, LocalDate end_date, Modifier modifier, String post_description) {
+        this.email = email;
+        this.post_title = post_title;
+        this.post_img = post_img;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.modifier = modifier;
+        this.post_description = post_description;
+    }
+
+    public void Update(String post_title, String post_img, LocalDate start_date, LocalDate end_date, Modifier modifier, String post_description){
+        this.post_title = post_title;
+        this.post_img = post_img;
+        this.start_date = start_date;
+        this.end_date = end_date;
+        this.modifier = modifier;
+        this.post_description = post_description;
+    }
 }
