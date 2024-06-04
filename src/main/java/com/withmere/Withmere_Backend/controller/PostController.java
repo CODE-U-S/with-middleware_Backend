@@ -1,3 +1,4 @@
+/*
 package com.withmere.Withmere_Backend.controller;
 
 import com.withmere.Withmere_Backend.dto.Post.AddPostRequest;
@@ -43,3 +44,4 @@ public class PostController {
         return postUpdateService.updatePost(id, postRequest);
     }
 }
+*/

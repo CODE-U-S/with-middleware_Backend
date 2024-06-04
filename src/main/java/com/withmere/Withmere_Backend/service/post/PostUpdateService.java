@@ -1,3 +1,4 @@
+/*
 package com.withmere.Withmere_Backend.service.post;
 
 import com.withmere.Withmere_Backend.domain.post.Post;
@@ -32,4 +33,4 @@ public class PostUpdateService {
             throw new RuntimeException("Post not found");
         }
     }
-}
+}*/

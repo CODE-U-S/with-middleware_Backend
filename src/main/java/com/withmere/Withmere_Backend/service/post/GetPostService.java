@@ -1,3 +1,4 @@
+/*
 package com.withmere.Withmere_Backend.service.post;
 
 import com.withmere.Withmere_Backend.dto.Post.PostResponse;
@@ -28,3 +29,4 @@ public class GetPostService {
         return follows;
     }
 }
+*/

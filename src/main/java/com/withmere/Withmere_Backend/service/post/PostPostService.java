@@ -1,7 +1,7 @@
+/*
 package com.withmere.Withmere_Backend.service.post;
 
 import com.withmere.Withmere_Backend.domain.post.Post;
-import com.withmere.Withmere_Backend.dto.Post.AddPostRequest;
 import com.withmere.Withmere_Backend.exception.error.MissingFieldException;
 import com.withmere.Withmere_Backend.repository.PostRepository;
 import jakarta.transaction.Transactional;
@@ -36,3 +36,4 @@ public class PostPostService {
         postRepository.save(post);
     }
 }
+*/
