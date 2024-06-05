@@ -9,7 +9,8 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
     FRIEND_DUPLICATE(HttpStatus.CONFLICT, "Follow Duplicate"), // 유저의 이메일이 중복됨
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "User Not Found"), // 유저를 찾을 수 없음
-    FRIEND_NOT_FOUND(HttpStatus.NOT_FOUND, "Follow Not Found"); // 팔로우한 기록을 찾을 수 없음
+    FRIEND_NOT_FOUND(HttpStatus.NOT_FOUND, "Follow Not Found"), // 팔로우한 기록을 찾을 수 없음
+    EXIST_LIKE(HttpStatus.CONFLICT, "Like Already Exists"); // 좋아요가 이미 있음
 
     private final HttpStatus status;
     private final String message;

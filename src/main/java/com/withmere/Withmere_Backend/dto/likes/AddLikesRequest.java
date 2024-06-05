@@ -4,7 +4,6 @@ import com.withmere.Withmere_Backend.domain.likes.Likes;
 import com.withmere.Withmere_Backend.domain.post.Post;
 import com.withmere.Withmere_Backend.domain.user.User;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
