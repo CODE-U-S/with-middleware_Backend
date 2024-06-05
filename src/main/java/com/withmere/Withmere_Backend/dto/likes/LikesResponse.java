@@ -12,7 +12,7 @@ public class LikesResponse {
     private User user;
 
     public LikesResponse(Likes l) {
-        this.post = l.getPost_id();
-        this.user = l.getEmail();
+        this.post = l.getPost();
+        this.user = l.getUser();
     }
 }

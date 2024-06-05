@@ -19,8 +19,8 @@ public class DeleteLikesService {
     @Transactional
     public void execute(Post post, User user){
         // 일치하는 like 없을 시 + post랑 user null판단
-        if(!lr.existsLike(post, user) || post == null || user == null) throw LikesNotFoundException.EXCEPTION;
+        if(!lr.existsByPostAndUser(post, user) || post == null || user == null) throw LikesNotFoundException.EXCEPTION;
 
-        lr.deleteLike(post, user);
+        lr.deleteByPostAndUser(post, user);
     }
 }

@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface LikesRepository extends JpaRepository<Likes, Long> {
-    boolean existsLike(Post post, User user);
-    void deleteLike(Post post, User user);
-    List<Likes> showAllPostLikes(Post post);
-    List<Likes> showAllUserLikes(User user);
+    boolean existsByPostAndUser(Post post, User user);
+    void deleteByPostAndUser(Post post, User user);
+    List<Likes> findByPost(Post post);
+    List<Likes> findByUser(User user);
 }

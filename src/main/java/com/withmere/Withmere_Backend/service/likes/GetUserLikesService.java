@@ -20,7 +20,7 @@ public class GetUserLikesService {
     public List<LikesResponse> execute(User user){
         if(user == null) throw UserNotFoundException.EXCEPTION;
 
-        List<LikesResponse> userLikes = lr.showAllUserLikes(user)
+        List<LikesResponse> userLikes = lr.findByUser(user)
                 .stream()
                 .map(LikesResponse::new)
                 .collect(Collectors.toList());

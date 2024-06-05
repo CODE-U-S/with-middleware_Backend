@@ -24,7 +24,7 @@ public class PostLikesService {
         //고려 하지 않은 상황 : 없는 게시판일 경우, 없는 회원일 경우
 
         //post와 user 둘 다 일치하는 결과가 있을 때
-        if(lr.existsLike(post, user)) throw LikesExistException.EXCEPTION;
+        if(lr.existsByPostAndUser(post, user)) throw LikesExistException.EXCEPTION;
 
         lr.save(r.toEntity(post, user));
     }

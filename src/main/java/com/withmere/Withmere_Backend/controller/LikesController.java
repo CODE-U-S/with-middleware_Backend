@@ -35,7 +35,7 @@ public class LikesController {
     }
 
     @GetMapping("/post")
-    public int getPostLikes(@RequestBody @Valid AddLikesRequest request){
+    public List<LikesResponse> getPostLikes(@RequestBody @Valid AddLikesRequest request){
         return gpls.execute(request.getPost());
     }
 

@@ -16,16 +16,14 @@ public class GetPostLikesService {
     private final LikesRepository lr;
 
     @Transactional
-    public int execute(Post post){
+    public List<LikesResponse> execute(Post post){
         // if(post == null) PostNotFoundException
 
-        List<LikesResponse> postLikes = lr.showAllPostLikes(post)
+        List<LikesResponse> postLikes = lr.findByPost(post)
                 .stream()
                 .map(LikesResponse::new)
                 .collect(Collectors.toList());
 
-        int postLike = postLikes.size();
-
-        return postLike;
+        return postLikes;
     }
 }
