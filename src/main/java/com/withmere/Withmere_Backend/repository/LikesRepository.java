@@ -7,5 +7,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LikesRepository extends JpaRepository<Likes, Long> {
-    boolean existsPostAndUser(Post post, User user);
+    boolean existsLike(Post post, User user);
+    void deleteLike(Post post, User user);
 }
