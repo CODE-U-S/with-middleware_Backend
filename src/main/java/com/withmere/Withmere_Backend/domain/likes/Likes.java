@@ -3,6 +3,7 @@ package com.withmere.Withmere_Backend.domain.likes;
 import com.withmere.Withmere_Backend.domain.post.Post;
 import com.withmere.Withmere_Backend.domain.user.User;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 
 //게시판 좋아요 파악하기
@@ -22,4 +23,10 @@ public class Likes {
     @ManyToOne
     @JoinColumn(name="email", nullable = false)
     private User email;
+
+    @Builder
+    public Likes(Post post, User user){
+        this.post_id = post;
+        this.email = user;
+    }
 }
