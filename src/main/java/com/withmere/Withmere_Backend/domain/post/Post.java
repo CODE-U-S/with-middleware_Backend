@@ -3,14 +3,13 @@ package com.withmere.Withmere_Backend.domain.post;
 import com.withmere.Withmere_Backend.domain.BaseTimeEntity;
 import com.withmere.Withmere_Backend.domain.user.User;
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name="post")
 public class Post extends BaseTimeEntity {
