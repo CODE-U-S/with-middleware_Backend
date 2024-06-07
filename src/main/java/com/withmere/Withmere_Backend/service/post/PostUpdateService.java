@@ -1,5 +1,4 @@
-/*
-package com.withmere.Withmere_Backend.service.post;
+/*package com.withmere.Withmere_Backend.service.post;
 
 import com.withmere.Withmere_Backend.domain.post.Post;
 import com.withmere.Withmere_Backend.dto.Post.AddPostRequest;

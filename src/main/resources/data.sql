@@ -24,11 +24,3 @@ ON DUPLICATE KEY UPDATE
     password = VALUES(password),
     created_date = VALUES(created_date),
     category = VALUES(category);
-
-INSERT INTO post (email) VALUE ('rlagPtmd@e-mirim.hs.kr')
-ON DUPLICATE KEY UPDATE
-    email = VALUES(email);
-
-INSERT INTO post (email) VALUE ('dlwldls@e-mirim.hs.kr')
-ON DUPLICATE KEY UPDATE
-    email = VALUES(email);

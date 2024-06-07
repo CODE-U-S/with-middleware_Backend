@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.withmere.Withmere_Backend.domain.BaseTimeEntity;
 import com.withmere.Withmere_Backend.domain.friend.Friend;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -19,6 +17,7 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false, unique = true)
     private String nickname;
 
     private String password;
@@ -30,4 +29,9 @@ public class User extends BaseTimeEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "fromUser", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
     private List<Friend> toFromList;
+
+    @Builder
+    private User(String email){
+        this.email = email;
+    }
 }

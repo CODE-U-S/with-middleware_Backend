@@ -3,7 +3,6 @@ package com.withmere.Withmere_Backend.service.post;
 
 import com.withmere.Withmere_Backend.domain.post.Post;
 import com.withmere.Withmere_Backend.domain.user.User;
-import com.withmere.Withmere_Backend.exception.error.PostNotFoundException;
 import com.withmere.Withmere_Backend.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
