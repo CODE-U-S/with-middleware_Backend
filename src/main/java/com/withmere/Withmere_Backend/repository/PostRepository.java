@@ -1,21 +1,22 @@
 package com.withmere.Withmere_Backend.repository;
 
+import com.withmere.Withmere_Backend.domain.post.Ground;
+import com.withmere.Withmere_Backend.domain.post.Modifier;
 import com.withmere.Withmere_Backend.domain.post.Post;
-//<<<<<<< HEAD
 import com.withmere.Withmere_Backend.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
-    List<Post> findByEmail(User email);
-//    void deletePost(User email, String post_title);
-//    List<Post> findById(Long id);
+    boolean existsByEmailAndPostTitle(User email, String postTitle);
+    void deleteByEmailAndPostTitle(User email, String postTitle);
+
+    List<Post> findByPostTitle(String postTitle);
+    List<Post> findByGround(Ground ground);
+    List<Post> findByDivision(int division);
+    //List<Post> findByStartDateAndEndDate(LocalDate startDate, LocalDate endDate);
+    //List<Post> findByEndDate(LocalDate endDate, LocalDate startDate);
 }
-//=======
-//import org.springframework.data.jpa.repository.JpaRepository;
-//
-//public interface PostRepository extends JpaRepository<Post, Long> {
-//}
-//>>>>>>> 00e6f76cee24975f9faa17cb37f1d29504d83e66

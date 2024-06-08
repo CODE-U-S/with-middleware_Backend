@@ -1,27 +1,24 @@
-/*
 package com.withmere.Withmere_Backend.service.post;
 
 import com.withmere.Withmere_Backend.dto.Post.PostResponse;
-import com.withmere.Withmere_Backend.dto.friend.FriendResponse;
+import com.withmere.Withmere_Backend.exception.UserNotFoundException;
 import com.withmere.Withmere_Backend.repository.PostRepository;
-import com.withmere.Withmere_Backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
-
+/*
 @RequiredArgsConstructor
 @Service
-public class GetPostService {
-    private final GetPostService getPostService;
+public class GetPostTimeService {
     private final PostRepository postRepository;
-    private final UserRepository userRepository;
     @Transactional
-    public List<PostResponse> execute(String postTitle) {
+    public List<PostResponse> execute(LocalDate startDate, LocalDate endDate) {
 
-        List<PostResponse> follows = postRepository.findByEmail(postTitle)
+        List<PostResponse> follows = postRepository.findByStartDateAndEndDate(startDate, endDate)
                 .stream()
                 .map(PostResponse::new)
                 .collect(Collectors.toList());

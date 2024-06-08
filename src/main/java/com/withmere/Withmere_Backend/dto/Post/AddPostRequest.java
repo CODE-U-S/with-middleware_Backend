@@ -1,25 +1,36 @@
-/*
-package com.withmere.Withmere_Backend.dto.post;
+package com.withmere.Withmere_Backend.dto.Post;
 
+import com.withmere.Withmere_Backend.domain.BaseTimeEntity;
+import com.withmere.Withmere_Backend.domain.post.Ground;
+import com.withmere.Withmere_Backend.domain.post.Modifier;
 import com.withmere.Withmere_Backend.domain.post.Post;
 import com.withmere.Withmere_Backend.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 public class AddPostRequest {
-    private Post post_id;
     private User email;
-    private Post post_title;
-    private Post post_img;
-    private Post start_date; //게시판의 모집 시작 날짜
-    private Post end_date; //게시판의 모집 마감 날짜
-    private Post post_description;
+    //private User nickname;
+    private String postTitle;
+    private String postImg;
+    private LocalDate startDate; //게시판의 모집 시작 날짜
+    private LocalDate endDate; //게시판의 모집 마감 날짜
+    private Modifier modifier;
+    private Ground ground;
+    private int division;
+    private String postDescription;
 
-    public Post postEntity(Post post_id, User email, Post post_title, Post post_img, Post start_date, Post end_date, Post post_description) {
-        return new Post(post_id, email, post_title, post_img, start_date, end_date, post_description);
+    public Post postEntity(User email, //User nickname,
+                           String postTitle, String postImg,
+                           LocalDate startDate, LocalDate endDate,
+                           Modifier modifier, Ground ground, int division, String postDescription) {
+        return new Post(email,  postTitle, postImg, startDate, endDate, modifier, ground, division, postDescription);
     }
-}*/
+}
