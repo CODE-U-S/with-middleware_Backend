@@ -1,35 +1,44 @@
-/*package com.withmere.Withmere_Backend.service.post;
+/*
+package com.withmere.Withmere_Backend.service.post;
 
 import com.withmere.Withmere_Backend.domain.post.Post;
 import com.withmere.Withmere_Backend.dto.Post.AddPostRequest;
 import com.withmere.Withmere_Backend.dto.Post.PostResponse;
 import com.withmere.Withmere_Backend.repository.PostRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class PostUpdateService {
-
-    @Autowired
-    private PostRepository postRepository;
+    private final PostRepository postRepository;
 
     public PostResponse updatePost(Long postId, AddPostRequest addPostRequest) {
-        List<Post> postList = postRepository.findById(postId);
+        Optional<Post> postList = postRepository.findById(postId);
 
-        if (!postList.isEmpty()) {
-            Post post = postList.get(0); // List에서 첫 번째 요소를 가져옵니다.
-            post.setPostTitle(addPostRequest.getPost_title());
-            post.setPostImg(addPostRequest.getPost_img());
-            post.setStartDate(addPostRequest.getStart_date());
-            post.setEndDate(addPostRequest.getEnd_date());
+        Optional<Object> optionalPost = null;
+        if (optionalPost.isPresent()) {
+            Object post = optionalPost.get();
+            // 수정할 내용 설정
+            post.setPostTitle(addPostRequest.getPostTitle());
+            post.setPostImg(addPostRequest.getPostImg());
+            post.setStartDate(addPostRequest.getStartDate());
+            post.setEndDate(addPostRequest.getEndDate());
             post.setModifier(addPostRequest.getModifier());
-            post.setPostDescription(addPostRequest.getPost_description());
+            post.setPostDescription(addPostRequest.getPostDescription());
+
+            // 수정된 포스트 저장
             Post updatedPost = postRepository.save(post);
-            return new PostResponse(updatedPost); // PostResponse 생성자에 맞게 조정하세요
+
+            // 수정된 포스트를 응답으로 반환
+            return new PostResponse(updatedPost);
         } else {
-            throw new RuntimeException("Post not found");
+            throw new PostNotFoundException("Post not found");
         }
     }
-}*/
+}
+*/

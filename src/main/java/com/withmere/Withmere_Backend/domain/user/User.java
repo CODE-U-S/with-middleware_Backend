@@ -17,7 +17,6 @@ public class User extends BaseTimeEntity {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false, unique = true)
     private String nickname;
 
     private String password;
@@ -30,8 +29,4 @@ public class User extends BaseTimeEntity {
     @OneToMany(mappedBy = "fromUser", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
     private List<Friend> toFromList;
 
-    @Builder
-    private User(String email){
-        this.email = email;
-    }
 }

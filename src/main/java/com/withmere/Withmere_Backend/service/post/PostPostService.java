@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -23,11 +22,10 @@ public class PostPostService {
     @Transactional
     public void execute(AddPostRequest request) {
         User email = request.getEmail(); // 이메일을 문자열로 받아옴
-        User nickname = request.getNickname();
+        //User nickname = request.getNickname();
         String postTitle = request.getPostTitle();
         String postImg = request.getPostImg();
         Modifier modifier = request.getModifier();
-        LocalDateTime createdDate = request.getCreatedDate();
         LocalDate startDate = request.getStartDate();
         LocalDate endDate = request.getEndDate();
         Ground ground = request.getGround();
@@ -38,6 +36,10 @@ public class PostPostService {
         if (postRepository.existsByEmailAndPostTitle(email, postTitle)) {
             throw new EmailTitleDuplaicateException();
         }
+        // 이메일과 닉네임이 일치하지 않으면 예외 발생
+//        if (!email.getNickname().equals(nickname)) {
+//            throw new EmailNicknameMismatchException();
+//        }
 
         // 시작 날짜가 종료 날짜보다 미래면 예외 발생
         if (startDate != null && endDate != null && startDate.isAfter(endDate)) {
@@ -48,8 +50,9 @@ public class PostPostService {
         if (startDate != null && startDate.isBefore(LocalDate.now())) {
             throw new StartDatePastException();
         }
+        // 유저테이블의 이메일과 닉네임이 같지 않으면 예외 발생
 
         // 모든 예외 조건을 통과하면 게시물 저장
-        postRepository.save(request.postEntity(email, nickname, postTitle, postImg, createdDate, startDate, endDate, modifier, ground, division, postDescription));
+        postRepository.save(request.postEntity(email, postTitle, postImg, startDate, endDate, modifier, ground, division, postDescription));
     }
 }

@@ -17,10 +17,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class AddPostRequest {
     private User email;
-    private User nickname;
+    //private User nickname;
     private String postTitle;
     private String postImg;
-    private LocalDateTime createdDate;
     private LocalDate startDate; //게시판의 모집 시작 날짜
     private LocalDate endDate; //게시판의 모집 마감 날짜
     private Modifier modifier;
@@ -28,9 +27,10 @@ public class AddPostRequest {
     private int division;
     private String postDescription;
 
-    public Post postEntity(User email, User nickname, String postTitle, String postImg,
-                           LocalDateTime createdDate, LocalDate startDate, LocalDate endDate,
+    public Post postEntity(User email, //User nickname,
+                           String postTitle, String postImg,
+                           LocalDate startDate, LocalDate endDate,
                            Modifier modifier, Ground ground, int division, String postDescription) {
-        return new Post(email, nickname, postTitle, postImg, createdDate, startDate, endDate, modifier, ground, division, postDescription);
+        return new Post(email,  postTitle, postImg, startDate, endDate, modifier, ground, division, postDescription);
     }
 }

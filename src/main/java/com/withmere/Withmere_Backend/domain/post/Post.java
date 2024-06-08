@@ -24,9 +24,9 @@ public class Post extends BaseTimeEntity {
     @JoinColumn(name = "email", nullable = false) //한 계정이 여러 게시판 생성 가능
     private User email;
 
-    @OneToOne
-    @JoinColumn(name = "postNickname", nullable = false)
-    private User nickname;
+//    @OneToOne
+//    @JoinColumn(name = "postNickname", nullable = false)
+//    private User nickname;
 
     @Column(length = 50)
     private String postTitle;
@@ -47,16 +47,15 @@ public class Post extends BaseTimeEntity {
     private String postDescription;
 
     @Builder
-    public Post(User email, User nickname,
+    public Post(User email, //User nickname,
                 String postTitle, String postImg,
-                LocalDateTime createdDate, LocalDate startDate, LocalDate endDate,
+                LocalDate startDate, LocalDate endDate,
                 Modifier modifier, Ground ground, int division,
                 String postDescription) {
         this.email = email;
-        this.nickname = nickname;
+        //this.nickname = nickname;
         this.postTitle = postTitle;
         this.postImg = postImg;
-        this.createdDate = createdDate;
         this.startDate = startDate;
         this.endDate = endDate;
         this.modifier = modifier;
